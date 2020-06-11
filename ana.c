@@ -16,9 +16,21 @@ int main(){
   fscanf(fp, "%[^,]%*c",times);
   printf("%s\n", times);
 
+  char ext[20];
+  fscanf(fp, "%[^,]%*c",ext);
+  printf("%s\n", ext);
+
+  char remo[20];
+  fscanf(fp, "%[^,]%*c",remo);
+  printf("%s\n", remo);
+
   char ids[20];  
   fscanf(fp, "%[^,]%*c",ids);
   printf("%s\n", ids);
+
+  if(strcmp(ids, "18FEF100")==0){
+    printf("speed data\n");
+  }
 
   char datas[8][20];
   fscanf(fp, "%[^,]%*c",datas[0]);
