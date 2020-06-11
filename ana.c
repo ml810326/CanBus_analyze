@@ -2,6 +2,28 @@
 #include <stdlib.h>
 #include <string.h>
 
+void check_ID(char *id){
+ if(strcmp(id, "18FEF100")==0){
+    printf("speed data\n");
+  }
+}
+
+void check_ext(char *ex){
+  if(strcmp(ex, "1")==0){
+    printf("Extend Frame\n");
+  }else{
+    printf("Base Frame\n");
+  }
+}
+
+void check_remo(char *rem){
+  if(strcmp(rem, "1")==0){
+    printf("Remote Frame\n");
+  }else{
+    printf("Data Frame\n");
+  }
+}
+
 int main(){
   FILE *fp;
   char ch;
@@ -18,19 +40,15 @@ int main(){
 
   char ext[20];
   fscanf(fp, "%[^,]%*c",ext);
-  printf("%s\n", ext);
+  check_ext(ext);  
 
   char remo[20];
   fscanf(fp, "%[^,]%*c",remo);
-  printf("%s\n", remo);
+  check_remo(remo);
 
   char ids[20];  
   fscanf(fp, "%[^,]%*c",ids);
-  printf("%s\n", ids);
-
-  if(strcmp(ids, "18FEF100")==0){
-    printf("speed data\n");
-  }
+  check_ID(ids);
 
   char datas[8][20];
   fscanf(fp, "%[^,]%*c",datas[0]);
